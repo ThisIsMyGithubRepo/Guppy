@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace Guppy
 {
@@ -12,19 +14,43 @@ namespace Guppy
 		}
 
 		// Cleaner methods return a tuple where the boolean indicates if the line should be kept.
+		// Accepts multi-line strings.
 		// If Item1 = True, then keep the line. If item1 = false, then drop the line.
 		// If not kept, then the calling method should drop the string as unnecessary.
-		public static Tuple<bool, string> CleanMarlinResponseAndRemoveTextAndLinesNotNeededForCommands (string s)
+		public static Tuple<bool, string> CleanMarlinResponseAndRemoveTextAndLinesNotNeededForCommands(string s)
 		{
-			return StripAndRemoveGeneric(new List<string>() { "echo:" }, 
-				new List<string>(), 
-				s);
+			List<string> commandList = MakeCommandListFromString(s);
+			List<string> cleanList = new List<string>();
+			List<string> subStringsToRemove = new List<string>() { "echo:", "ok" };
+			List<string> linesToRemove = new List<string>() { "Unified Bed Leveling System.*" };
+
+
+ 			Tuple<bool, string> result;
+
+			foreach (string str in commandList)
+			{
+				result = StripAndRemoveGeneric(subStringsToRemove, linesToRemove, str);
+				if(result.Item1)
+				{
+					cleanList.Add(result.Item2);
+				}
+			}
+
+			if(cleanList.Count>0)
+			{
+				string cleanString = MakeStringFromCommandList(cleanList);
+				return new Tuple<bool, string>(true, cleanString);
+			}
+			else
+			{
+				return new Tuple<bool, string>(false, string.Empty);
+			}
 		}
 
 		public static Tuple<bool, string> CleanMarlinG29T1UBLMeshResponse(string s)
 		{
-			return StripAndRemoveGeneric(new List<string>(), 
-				new List<string>() { "Bed Topography Report for CSV:" },				
+			return StripAndRemoveGeneric(new List<string>(),
+				new List<string>() { "Bed Topography Report for CSV:" },
 				s);
 		}
 
@@ -32,7 +58,8 @@ namespace Guppy
 		{
 			string ns = s.Trim();
 
-			if (linesToRemove.Contains(ns))
+			
+			if (linesToRemove.Count(z => Regex.IsMatch(ns, z)) > 0)
 			{
 				return new Tuple<bool, string>(false, string.Empty);
 			}
@@ -42,7 +69,7 @@ namespace Guppy
 				{
 					ns = ns.Replace(ss, string.Empty, StringComparison.CurrentCultureIgnoreCase);
 				}
-				
+
 				ns = ns.Trim();
 
 				return new Tuple<bool, string>(true, ns);
@@ -54,14 +81,19 @@ namespace Guppy
 			return string.Join("\r\n", commandList);
 		}
 
+		public static List<string> MakeCommandListFromString(string s)
+		{
+			return new List<string>(s.Split("\r\n"));
+		}
+
 		public static List<string> MakeSanatizedCommandListFromString(string s)
 		{
-			return SanitizeCommandList(new List<string>(s.Split("\r\n")));
+			return SanitizeCommandList(MakeCommandListFromString(s));
 		}
 
 		public static List<string> SanitizeCommandList(List<string> commands)
 		{
-			List<string> StringsToDrop = new List<string>() {string.Empty}; // Expecting more strings to be added in the future.
+			List<string> StringsToDrop = new List<string>() { string.Empty }; // Expecting more strings to be added in the future.
 			string working;
 
 			List<string> clean = new List<string>();

@@ -87,13 +87,13 @@ namespace Guppy.OutputItems
 			int sizeY = clean.Count;
 			int sizeX = clean[0].Split("\t").Length;
 
-			float[,] mesh = new float[sizeX, sizeY];
+			double[,] mesh = new double[sizeX, sizeY];
 
-			float[] row;
+			double[] row;
 			for (int y = 0; y < sizeY; y++)
 			{
 				// Split the string and convert the values in floats.
-				row = Array.ConvertAll(clean[y].Split("\t"), s => float.Parse(s));
+				row = Array.ConvertAll(clean[y].Split("\t"), s => double.Parse(s));
 
 				for (int x = 0; x < sizeX; x++)
 				{

@@ -18,25 +18,25 @@
       <Value Profile="(Default)">None</Value>
     </Setting>
     <Setting Name="M1" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Report Settings,M503</Value>
+      <Value Profile="(Default)">Home,G28</Value>
     </Setting>
     <Setting Name="M2" Type="System.String" Scope="User">
-      <Value Profile="(Default)">3 Cmds,M501,M501,M501</Value>
+      <Value Profile="(Default)">Preheat PLA,M104 S180,M140 S40</Value>
     </Setting>
     <Setting Name="M3" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Preheat PETG,M104 S190,M140 S60</Value>
     </Setting>
     <Setting Name="M4" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Stop Heating,M104 S0,M140 S0</Value>
     </Setting>
     <Setting Name="M5" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Move Up 20mm,G91,G0 Z20 F500</Value>
     </Setting>
     <Setting Name="M6" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Present,G90,G0 Y200 F1500</Value>
     </Setting>
     <Setting Name="M7" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Disable Steppers,M18</Value>
     </Setting>
     <Setting Name="M8" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -45,16 +45,16 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="M10" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Say Hi,M117 Hi</Value>
+      <Value Profile="(Default)">UBL Auto Probe,G29 P1,G29 F 10.0</Value>
     </Setting>
     <Setting Name="M11" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">UBL Mesh Fill,G29 P3 T</Value>
     </Setting>
     <Setting Name="M12" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Output Mesh,G29 T1</Value>
     </Setting>
     <Setting Name="M13" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Output Mesh Gcode,G29 S -1</Value>
     </Setting>
     <Setting Name="M14" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -72,10 +72,10 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="M19" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Print Config,M503</Value>
     </Setting>
     <Setting Name="M20" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Save Config,M501</Value>
     </Setting>
   </Settings>
 </SettingsFile>

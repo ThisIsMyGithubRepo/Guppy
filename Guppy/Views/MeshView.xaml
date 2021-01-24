@@ -3,12 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:SurfacePlot="clr-namespace:WPFSurfacePlot3D"
         xmlns:local="clr-namespace:Guppy"
         mc:Ignorable="d"
         Title="MeshView" Height="450" Width="800">
     <Grid>
-        <Viewport3D x:Name="mesh3dViewport" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch">
-            <!--<Viewport3D.Camera>
+        <SurfacePlot:SurfacePlotView  x:Name="surfacePlotView" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch" />
+        <!--<Viewport3D x:Name="mesh3dViewport" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch">
+            <Viewport3D.Camera>
                 <PerspectiveCamera Position="8 -20 9" LookDirection="0 1 -0.25"/>
             </Viewport3D.Camera>
             <ModelVisual3D>
@@ -27,7 +29,7 @@
                         <GeometryModel3D.Material>
                             <DiffuseMaterial>
                                 <DiffuseMaterial.Brush>
-                                    <SolidColorBrush Color = "Black"/>
+                                    <SolidColorBrush Color = "Black" Opacity=".2"/>
                                 </DiffuseMaterial.Brush>
                             </DiffuseMaterial>
                         </GeometryModel3D.Material>
@@ -47,7 +49,7 @@
                         </RotateTransform3D.Rotation>
                     </RotateTransform3D>
                 </ModelVisual3D.Transform>
-            </ModelVisual3D>-->
-        </Viewport3D>
+            </ModelVisual3D>
+        </Viewport3D>-->
     </Grid>
 </Window>

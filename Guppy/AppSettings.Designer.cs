@@ -85,7 +85,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Report Settings,M503")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Home,G28")]
         public string M1 {
             get {
                 return ((string)(this["M1"]));
@@ -97,7 +97,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3 Cmds,M501,M501,M501")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Preheat PLA,M104 S180,M140 S40")]
         public string M2 {
             get {
                 return ((string)(this["M2"]));
@@ -109,7 +109,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Preheat PETG,M104 S190,M140 S60")]
         public string M3 {
             get {
                 return ((string)(this["M3"]));
@@ -121,7 +121,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Stop Heating,M104 S0,M140 S0")]
         public string M4 {
             get {
                 return ((string)(this["M4"]));
@@ -133,7 +133,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Move Up 20mm,G91,G0 Z20 F500")]
         public string M5 {
             get {
                 return ((string)(this["M5"]));
@@ -145,7 +145,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Present,G90,G0 Y200 F1500")]
         public string M6 {
             get {
                 return ((string)(this["M6"]));
@@ -157,7 +157,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Disable Steppers,M18")]
         public string M7 {
             get {
                 return ((string)(this["M7"]));
@@ -193,7 +193,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Say Hi,M117 Hi")]
+        [global::System.Configuration.DefaultSettingValueAttribute("UBL Auto Probe,G29 P1,G29 F 10.0")]
         public string M10 {
             get {
                 return ((string)(this["M10"]));
@@ -205,7 +205,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("UBL Mesh Fill,G29 P3 T")]
         public string M11 {
             get {
                 return ((string)(this["M11"]));
@@ -217,7 +217,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Output Mesh,G29 T1")]
         public string M12 {
             get {
                 return ((string)(this["M12"]));
@@ -229,7 +229,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Output Mesh Gcode,G29 S -1")]
         public string M13 {
             get {
                 return ((string)(this["M13"]));
@@ -301,7 +301,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Print Config,M503")]
         public string M19 {
             get {
                 return ((string)(this["M19"]));
@@ -313,7 +313,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Save Config,M501")]
         public string M20 {
             get {
                 return ((string)(this["M20"]));

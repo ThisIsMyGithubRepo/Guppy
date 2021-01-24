@@ -163,7 +163,9 @@ namespace Guppy
 		private void ShowMeshView(pr_G29T_MeshMap mm)
 		{
 			MeshView _win = new MeshView(mm);
+			
 			_win.ShowDialog();
+			_win = null;
 		}
 
 
@@ -175,11 +177,18 @@ namespace Guppy
 				{
 					pr_M503orM501_Config o = e.Data.GetData(typeof(pr_M503orM501_Config)) as pr_M503orM501_Config;
 					MacroItem _macroForEdit = new MacroItem(GetMacroFromButton(sender).Label, o.CommandList); //The macro object will sanitize the command list.
+					if(_macroForEdit.Label==string.Empty)
+					{
+						_macroForEdit.Label = "M503 or M501 Config";
+					}
 					EditMacro((Button)sender, _macroForEdit);
 				}
 				else if (e.Data.GetDataPresent(DataFormats.Text))
 				{
 					string s = (string)e.Data.GetData(DataFormats.Text);
+
+					// Strip off any non-command stuff in case the user is drag-dropping echo'ed commands.
+					s = MarlinStringHelpers.CleanMarlinResponseAndRemoveTextAndLinesNotNeededForCommands(s).Item2;
 
 					// Take the label from the existing button and the command text from the drag/drop.
 					MacroItem _macroForEdit = new MacroItem(GetMacroFromButton(sender).Label, s); //The macro object will sanitize the command string.

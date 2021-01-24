@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Guppy"
         xmlns:OutputItems="clr-namespace:Guppy.OutputItems"
         mc:Ignorable="d"
-        Title="Guppy Communicator for Marlin" Height="500" Width="800">
+        Title="Guppy Communicator for Marlin" Height="500" Width="900">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
         <Style x:Key="OutputItemsDefaultStyle" TargetType="Paragraph">
@@ -141,8 +141,8 @@
                     <Setter Property="AllowDrop" Value="True"/>
                     <EventSetter Event="Click" Handler="btnMacro_Click"/>
                     <!--<EventSetter Event="MouseRightButtonDown" Handler="btnMacro_MouseRightButtonUp"/>-->
-                    <EventSetter Event="DragOver" Handler="btnMacro_DragOver"/>
-                    <EventSetter Event="Drop" Handler="btnMacro_Drop"/>
+                    <!--<EventSetter Event="DragOver" Handler="btnMacro_DragOver"/>
+                    <EventSetter Event="Drop" Handler="btnMacro_Drop"/>-->
                 </Style>
             </Grid.Resources>
             <Grid.ColumnDefinitions>
@@ -150,28 +150,28 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0" >
-                <Button x:Name="btnM1" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" />
-                <Button x:Name="btnM2" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" />
-                <Button x:Name="btnM3" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" />
-                <Button x:Name="btnM4" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" />
-                <Button x:Name="btnM5" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp"/>
-                <Button x:Name="btnM6" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" />
-                <Button x:Name="btnM7" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" />
-                <Button x:Name="btnM8" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" />
-                <Button x:Name="btnM9" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" />
-                <Button x:Name="btnM10" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" />
+                <Button x:Name="btnM1" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM2" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM3" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM4" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM5" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM6" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM7" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM8" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM9" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM10" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" >
-                <Button x:Name="btnM11" Template="{DynamicResource macroButton}" />
-                <Button x:Name="btnM12" Template="{DynamicResource macroButton}" />
-                <Button x:Name="btnM13" Template="{DynamicResource macroButton}" />
-                <Button x:Name="btnM14" Template="{DynamicResource macroButton}" />
-                <Button x:Name="btnM15" Template="{DynamicResource macroButton}" />
-                <Button x:Name="btnM16" Template="{DynamicResource macroButton}" />
-                <Button x:Name="btnM17" Template="{DynamicResource macroButton}" />
-                <Button x:Name="btnM18" Template="{DynamicResource macroButton}" />
-                <Button x:Name="btnM19" Template="{DynamicResource macroButton}" />
-                <Button x:Name="btnM20" Template="{DynamicResource macroButton}" />
+                <Button x:Name="btnM11" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM12" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM13" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM14" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM15" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM16" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM17" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM18" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM19" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
+                <Button x:Name="btnM20" Template="{DynamicResource macroButton}" MouseRightButtonDown="btnMacro_MouseRightButtonUp" DragDrop.Drop="btnMacro_Drop" DragDrop.DragOver="btnMacro_DragOver" />
             </StackPanel>
         </Grid>
         <Grid VerticalAlignment="Bottom" Grid.Row="2">

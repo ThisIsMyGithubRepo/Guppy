@@ -33,14 +33,14 @@ namespace GuppyTest
 			Assert.IsTrue(o is pr_G29T_MeshMap);
 
 			pr_G29T_MeshMap mm = o as pr_G29T_MeshMap;
-			Assert.IsTrue(mm.MeshValues[0, 0] == 0.290f);
-			Assert.IsTrue(mm.MeshValues[9, 9] == -0.255f);
-			Assert.IsTrue(mm.MeshValues[9, 0] == 0.030f);
-			Assert.IsTrue(mm.MeshValues[0, 9] == 0.185f);
+			Assert.IsTrue(mm.MeshValues[0, 0] == 0.290);
+			Assert.IsTrue(mm.MeshValues[9, 9] == -0.255);
+			Assert.IsTrue(mm.MeshValues[9, 0] == 0.030);
+			Assert.IsTrue(mm.MeshValues[0, 9] == 0.185);
 
 
-			Assert.IsTrue(mm.MeshValues[4, 2] == 0.115f);
-			Assert.IsTrue(mm.MeshValues[1, 2] == 0.260f);
+			Assert.IsTrue(mm.MeshValues[4, 2] == 0.115);
+			Assert.IsTrue(mm.MeshValues[1, 2] == 0.260);
 
 		}
 	}

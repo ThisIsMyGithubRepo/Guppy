@@ -9,9 +9,9 @@ namespace Guppy.OutputItems
 	{
 		public string Value { get; set; }
 		public int Id { get; private set; }
-		public float[,] MeshValues { get; private set; }
+		public double[,] MeshValues { get; private set; }
 		
-		public pr_G29T_MeshMap(int id, string value, float[,] meshValues)
+		public pr_G29T_MeshMap(int id, string value, double[,] meshValues)
 		{
 			Id = id;
 			Value = value;
