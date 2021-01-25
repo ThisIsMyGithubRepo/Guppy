@@ -45,19 +45,19 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="M10" Type="System.String" Scope="User">
-      <Value Profile="(Default)">UBL Auto Probe,G29 P1,G29 F 10.0</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="M11" Type="System.String" Scope="User">
-      <Value Profile="(Default)">UBL Mesh Fill,G29 P3 T</Value>
+      <Value Profile="(Default)">UBL Auto Probe,G29 P1,G29 F 10.0</Value>
     </Setting>
     <Setting Name="M12" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Output Mesh,G29 T1</Value>
+      <Value Profile="(Default)">UBL Mesh Fill,G29 P3 T</Value>
     </Setting>
     <Setting Name="M13" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Output Mesh Gcode,G29 S -1</Value>
+      <Value Profile="(Default)">Output Mesh,G29 T1</Value>
     </Setting>
     <Setting Name="M14" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Output Mesh Gcode,G29 S -1</Value>
     </Setting>
     <Setting Name="M15" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

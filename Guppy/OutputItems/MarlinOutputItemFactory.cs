@@ -73,7 +73,7 @@ namespace Guppy.OutputItems
 
 		public static IOutputItem BuildProcessedResponseM503(List<String> commandList)
 		{
-			return new pr_M503orM501_Config(GetId(), "M503 or M501 Processed Response", commandList);
+			return new pr_M503orM501_Config(GetId(), "M503 or M501 Config - Drag and Drop to Macro Button To Capture", commandList);
 		}
 
 		public static IOutputItem BuildProcessedResponseG29T(List<String> commandList)
@@ -102,7 +102,7 @@ namespace Guppy.OutputItems
 				}
 			}
 
-			return new pr_G29T_MeshMap(GetId(), "G29T Processed Response", mesh);
+			return new pr_G29T_MeshMap(GetId(), "G29 T Mesh Map - Double Click to View", mesh);
 		}
 	}
 }

@@ -83,9 +83,21 @@ namespace Guppy
 					SetTextboxToCommand(String.Empty);
 					_oldCommandIndex = 0;
 					break;
+				case Key.Left:
+					if(txtCommandToSend.CaretIndex==0)
+					{
+						MoveCaretToEndOfTextBox();
+						e.Handled = true;
+					}
+					break;
 				default:
 					break;
 			}
+		}
+
+		private void MoveCaretToEndOfTextBox()
+		{
+			txtCommandToSend.CaretIndex = txtCommandToSend.Text.Length;
 		}
 
 		private void cmdSend_Click(object sender, RoutedEventArgs e)
@@ -163,11 +175,9 @@ namespace Guppy
 		private void ShowMeshView(pr_G29T_MeshMap mm)
 		{
 			MeshView _win = new MeshView(mm);
-			
-			_win.ShowDialog();
-			_win = null;
-		}
 
+			_win.ShowDialog();
+		}
 
 		private void btnMacro_Drop(object sender, DragEventArgs e)
 		{
@@ -177,7 +187,7 @@ namespace Guppy
 				{
 					pr_M503orM501_Config o = e.Data.GetData(typeof(pr_M503orM501_Config)) as pr_M503orM501_Config;
 					MacroItem _macroForEdit = new MacroItem(GetMacroFromButton(sender).Label, o.CommandList); //The macro object will sanitize the command list.
-					if(_macroForEdit.Label==string.Empty)
+					if (_macroForEdit.Label == string.Empty)
 					{
 						_macroForEdit.Label = "M503 or M501 Config";
 					}
@@ -293,7 +303,7 @@ namespace Guppy
 			{
 				string s = MarlinStringHelpers.CleanCommandString(txtCommandToSend.Text);
 				SendCommandToPort(s);
-				if (_oldCommandIndex == 0) // New Command, not one from the history
+				if (_oldCommandIndex == 0 || !DoesCommandMatchScrolledCommand(s)) // New Command, not one from the history
 				{
 					AddCommandToOldCommandQueue(s);
 				}
@@ -307,6 +317,7 @@ namespace Guppy
 
 		public void SendCommandToPort(string s)
 		{
+			if(_port==null || !_port.IsOpen) { OpenSerialPort(); }
 			_port.WriteLine(s);
 			AddItemToOutputCollection(MarlinOutputItemFactory.BuildPrinterCommandOutputItem(s));
 		}
@@ -383,6 +394,12 @@ namespace Guppy
 			return (_oldCommands.ToArray()[_oldCommandIndex - 1]);
 		}
 
+		private bool DoesCommandMatchScrolledCommand(string cmd)
+		{
+			string scrolledCommand = _oldCommands.ToArray()[_oldCommandIndex - 1];
+			return string.Equals(scrolledCommand, cmd, StringComparison.InvariantCultureIgnoreCase);
+		}
+
 		#endregion
 
 		#region Responses and Output List
@@ -431,7 +448,7 @@ namespace Guppy
 
 		private void P_MouseLeftButtonDownMeshDoubleClick(object sender, MouseButtonEventArgs e)
 		{
-			if (e.ClickCount>1)
+			if (e.ClickCount > 1)
 			{
 				Debug.WriteLine("Double Click on Mesh Occured");
 				pr_G29T_MeshMap mm = ((Paragraph)sender).DataContext as pr_G29T_MeshMap;
@@ -545,5 +562,6 @@ namespace Guppy
 			_settings.Save();
 		}
 		#endregion
+
 	}
 }

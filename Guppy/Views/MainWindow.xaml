@@ -179,7 +179,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="txtCommandToSend" HorizontalAlignment="Stretch" Margin="5,5,5,5" Text="" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="22" PreviewKeyDown="txtCommandToSend_PreviewKeyDown" Grid.Column="0" FontFamily="Global Monospace"/>
+            <TextBox x:Name="txtCommandToSend" HorizontalAlignment="Stretch" Margin="5,5,5,5" Text="" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="22" CharacterCasing="Upper" PreviewKeyDown="txtCommandToSend_PreviewKeyDown" Grid.Column="0" FontFamily="Global Monospace"/>
             <Button x:Name="cmdSend" Content="Send" HorizontalAlignment="Right" Margin="5,5,5,5" VerticalAlignment="Bottom" Width="70" Height="22" Click="cmdSend_Click" Grid.Column="1" />
         </Grid>
     </Grid>

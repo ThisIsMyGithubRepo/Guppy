@@ -6,7 +6,7 @@
         xmlns:SurfacePlot="clr-namespace:WPFSurfacePlot3D"
         xmlns:local="clr-namespace:Guppy"
         mc:Ignorable="d"
-        Title="MeshView" Height="450" Width="800">
+        Title="Mesh View" Height="450" Width="800">
     <Grid>
         <SurfacePlot:SurfacePlotView  x:Name="surfacePlotView" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch" />
         <!--<Viewport3D x:Name="mesh3dViewport" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch">

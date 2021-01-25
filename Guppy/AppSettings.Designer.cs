@@ -193,7 +193,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("UBL Auto Probe,G29 P1,G29 F 10.0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string M10 {
             get {
                 return ((string)(this["M10"]));
@@ -205,7 +205,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("UBL Mesh Fill,G29 P3 T")]
+        [global::System.Configuration.DefaultSettingValueAttribute("UBL Auto Probe,G29 P1,G29 F 10.0")]
         public string M11 {
             get {
                 return ((string)(this["M11"]));
@@ -217,7 +217,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Output Mesh,G29 T1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("UBL Mesh Fill,G29 P3 T")]
         public string M12 {
             get {
                 return ((string)(this["M12"]));
@@ -229,7 +229,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Output Mesh Gcode,G29 S -1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Output Mesh,G29 T1")]
         public string M13 {
             get {
                 return ((string)(this["M13"]));
@@ -241,7 +241,7 @@ namespace Guppy {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Output Mesh Gcode,G29 S -1")]
         public string M14 {
             get {
                 return ((string)(this["M14"]));
