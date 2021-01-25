@@ -35,7 +35,7 @@ The app will notice if certain responses are received from the printer, currentl
 
 <!-- ROADMAP -->
 ## Roadmap
-Literally while typing this, I realize I should make the app process mesh gcode results. You can highlight and drag/drop G29 S-1 output and it'll "commandify" it, but a nice processed result would be better.
+Literally while typing this, I realize I should make the app process mesh gcode results (I don't think a lot of people know about this feature? You can have marlin output the gcode necessary to re-create your mesh. It's like an export you do prior to a firmware update, since the update will erase your mesh). You can highlight and drag/drop G29 S-1 output and it'll "commandify" it, but a nice processed result would be better.
 
 <!-- Install -->
 ## Install
