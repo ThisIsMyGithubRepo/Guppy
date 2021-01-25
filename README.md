@@ -42,7 +42,7 @@ Literally while typing this, I realize I should make the app process mesh gcode 
 I have no idea how I should distribute this - maybe send a hint my way?
 You can obviously download the source and build it, if you have VSStudio.
 
-You can also download [Guppy.zip] and inside you'll find a single-file-exe built for Win x64 .Net 3.1, that migh run for you? Runs for me. I have no idea how to make you feel even remotely safe about downloading and running a random exe from the internet.
+You can also download [Guppy.zip][exe-link] and inside you'll find a single-file-exe built for Win x64 .Net 3.1, that migh run for you? Runs for me. I have no idea how to make you feel even remotely safe about downloading and running a random exe from the internet.
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
@@ -56,3 +56,4 @@ You can also download [Guppy.zip] and inside you'll find a single-file-exe built
 [text-drag-drop-screenshot]: Images/TextDragDropCommandified.jpg
 [config-to-marco-screenshot]: Images/ConfigTurnedIntoMacro.jpg
 [mesh-view-screenshot]: Images/MeshView.jpg
+[exe-link]: /Guppy.zip
