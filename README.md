@@ -17,7 +17,7 @@ I really don't know what I'm doing, in particular around publishing an app. So, 
 ### Basic Features
 * Connect/Disconnect using...wait for it...the Connect and Disconnect buttons. The app will try to autoconnect if you send a command while disconnected.
 * Type commands directly into the command bar. The last 5 commands are remembered and you can scroll through them with the up/down arrow keys to reuse them.
-* When you've scrolled to a command, you can use the left arrow to get to the end of it for editing - I find I often go back to a command and want to tweak a parameter. This makes it easier.
+* When you've scrolled to a command, you can use the left arrow to get to the end of it for editing - I find I often go back to a command and want to tweak a parameter. This makes that easier.
 
 ### Macros
 The app has 20 macro buttons, which can you assign any commands you want. Macros can have more than one command (multi-line). It comes with default commands including some UBL mesh management, but you can edit them to make them as you see fit.
