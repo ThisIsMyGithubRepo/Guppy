@@ -1,5 +1,5 @@
 # Guppy
-3D Printer Serial Communication Tool, mostly for Marlin
+3D Printer Serial Communication Tool, mostly for Marlin. Why Guppy? Marlin is a fish, and Guppies are much smaller fish. Plus I'm not great at naming apps.
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -18,7 +18,7 @@ I really don't know what I'm doing, in particular around publishing an app. So, 
 * When you've scrolled to a command, you can use the left arrow to get to the end of it for editing - I find I often go back to a command and want to tweak a parameter. This makes it easier.
 
 ### Macros
-The app has 10 macro buttons, which can you assign any commands you want. Macros can have more than one command (multi-line). It comes with default commands including some UBL mesh management, but you can edit them to make them as you see fit.
+The app has 20 macro buttons, which can you assign any commands you want. Macros can have more than one command (multi-line). It comes with default commands including some UBL mesh management, but you can edit them to make them as you see fit.
 * Single click a macro button to send the commands.
 * Right click a macro button to edit it.
 * You can drag/drop text from the output window onto a macro button. This will open a macro edit window with your dragged text inserted. The app will sanitize the text, stripping out any "echo" statements to make them runnable:
