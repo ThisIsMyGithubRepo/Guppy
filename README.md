@@ -1,6 +1,8 @@
 # Guppy
 3D Printer Serial Communication Tool, mostly for Marlin. Why Guppy? Marlin is a fish, and Guppies are much smaller fish. Plus I'm not great at naming apps.
 
+Gupply is a Windows .Net WPF Core 3.1 App.
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
