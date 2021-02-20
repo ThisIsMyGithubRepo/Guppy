@@ -40,9 +40,25 @@ Literally while typing this, I realize I should make the app process mesh gcode 
 <!-- Install -->
 ## Install
 I have no idea how I should distribute this - maybe send a hint my way?
-You can obviously download the source and build it, if you have VSStudio.
+I've created an Installers folder, where I've put some install options:
 
+#### Single Exe 
 You can also download [Guppy.zip][exe-link] and inside you'll find a single-file-exe built for Win x64 .Net 3.1, that migh run for you? Runs for me. I have no idea how to make you feel even remotely safe about downloading and running a random exe from the internet.
+
+#### ClickOnceWinx64
+ClickOnce Installer, no auto-update. Win x64 and Framework Dependent. Prerequesites should download from MS.
+ZIP File of this installer has the following CRC:
+Name: GuppySingleExe.zip
+Size: 61888135 bytes (59 MiB)
+SHA256: AEB1C0B62C15BF71CF974B86A88FCBA3FBA9B74B3BF6B5899F86EE21D50EE21A
+
+
+#### Winx64FrameworkDependent
+This is the slimmest option. It's only for Win x64. It might expect you to already have the .Net Framework? Or maybe it'll install it for you from Microsoft?
+ZIP File of this installer has the following CRC:
+Name: Winx64FrameworkDependent.zip
+Size: 1116270 bytes (1090 KiB)
+SHA256: 56C7227EA06E1FCA0E520ACB467AA420E9CE77B83106419FC0861690FC84576B
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
@@ -56,4 +72,4 @@ You can also download [Guppy.zip][exe-link] and inside you'll find a single-file
 [text-drag-drop-screenshot]: Images/TextDragDropCommandified.jpg
 [config-to-marco-screenshot]: Images/ConfigTurnedIntoMacro.jpg
 [mesh-view-screenshot]: Images/MeshView.jpg
-[exe-link]: /Guppy.zip
+[exe-link]: /Installers/GuppySingleExe.zip
