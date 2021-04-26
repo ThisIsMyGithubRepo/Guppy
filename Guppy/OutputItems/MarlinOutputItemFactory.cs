@@ -42,6 +42,19 @@ namespace Guppy.OutputItems
 			p.Name = "G29 T1 Processor";
 			col.Add(p);
 
+			//M20 Processor - SD Card File List
+
+			p = new SimpleStartEndAbortMatcher(
+				new List<string>(),
+				new List<string>() { "Begin file list" },
+				new List<string>(),
+				new List<string>() { "End file list" },
+				new List<string>(),
+				MarlinStringHelpers.CleanMarlinResponseAndRemoveTextAndLinesNotNeededForCommands,
+				BuildProcessedResponseG20);
+
+			p.Name = "G20 SD Card File List Processor";
+			col.Add(p);
 			return col;
 
 		}
@@ -104,5 +117,11 @@ namespace Guppy.OutputItems
 
 			return new pr_G29T_MeshMap(GetId(), "G29 T Mesh Map - Double Click to View", mesh);
 		}
+
+		public static IOutputItem BuildProcessedResponseG20(List<String> commandList)
+		{
+			return null;
+		}
+
 	}
 }

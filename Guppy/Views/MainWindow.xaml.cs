@@ -278,6 +278,13 @@ namespace Guppy
 			_port.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
 			_port.Open();
 			UpdateConnectedStatus(true);
+			SavePortSetting();
+		}
+
+		public void SavePortSetting()
+		{
+			_settings.Port = (String)cbPort.SelectedValue;
+			_settings.Save();
 		}
 
 		public void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
