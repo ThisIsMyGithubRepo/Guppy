@@ -293,7 +293,7 @@ namespace Guppy
 			{
 				string s = _port.ReadLine();
 				Debug.WriteLine($"Received: {s}");
-				AddItemToOutputCollection(MarlinOutputItemFactory.BuildMarlinResponseOutputItem(s));
+				ProcessMarlinResult(MarlinOutputItemFactory.BuildMarlinResponseOutputItem(s));
 			}
 			catch (Exception err)
 			{
@@ -301,6 +301,11 @@ namespace Guppy
 			}
 		}
 
+		public void ProcessMarlinResult(IOutputItem OI)
+		{
+			AddItemToOutputCollection(OI);
+			GetProcessedResponses(OI).ForEach(p => AddItemToOutputCollection(p));
+		}
 		#endregion
 
 		#region Commands
@@ -428,9 +433,8 @@ namespace Guppy
 							listOutput.Document.Blocks.Add(p);
 							listOutput.ScrollToEnd();
 							listOutput.Document.Blocks.LastBlock.BringIntoView();
-						});
 
-			GetProcessedResponses(OI);
+						});
 		}
 
 		private void AddEventHandlersForOutputType(Paragraph p, IOutputItem OI)
@@ -442,6 +446,21 @@ namespace Guppy
 			else if (OI is pr_G29T_MeshMap)
 			{
 				p.MouseDown += P_MouseLeftButtonDownMeshDoubleClick;
+			}
+			else if (OI is pr_M20_PrintableFile)
+			{
+				p.MouseDown += P_MouseLeftButtonDownFileDoubleClick;
+			}
+		}
+
+		private void P_MouseLeftButtonDownFileDoubleClick(object sender, MouseButtonEventArgs e)
+		{
+			if (e.ClickCount > 1)
+			{
+				Debug.WriteLine("Double Click on File Occured");
+				pr_M20_PrintableFile fileOI = ((Paragraph)sender).DataContext as pr_M20_PrintableFile;
+				SendCommandToPort($"M23 {fileOI.Value}");
+				SendCommandToPort("M24");
 			}
 		}
 
@@ -470,18 +489,20 @@ namespace Guppy
 			else if (OI is oi_ApplicationMessage) { return this.FindResource("ApplicationMessageTextStyle") as Style; }
 			else if (OI is pr_M503orM501_Config) { return this.FindResource("ProcessedResponseTextStyle") as Style; }
 			else if (OI is pr_G29T_MeshMap) { return this.FindResource("ProcessedResponseTextStyle") as Style; }
+			else if (OI is pr_M20_PrintableFile) { return this.FindResource("PrintableFileTextStyle") as Style; }
 			else { return this.FindResource("FallthroughTextStyle") as Style; }
 		}
 
-		private void GetProcessedResponses(IOutputItem outputItem)
+		private List<IOutputItem> GetProcessedResponses(IOutputItem outputItem)
 		{
-			IOutputItem o;
+			List<IOutputItem> outputItems = new List<IOutputItem>();
 
 			foreach (IResponseProcessor i in _responseProcessors)
 			{
-				o = i.ProcessAndReturnOutput(outputItem);
-				if (o != null) { AddItemToOutputCollection(o); }
+				outputItems.AddRange(i.ProcessAndReturnOutputItems(outputItem));
 			}
+
+			return outputItems;
 		}
 
 		#endregion

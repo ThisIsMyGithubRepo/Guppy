@@ -47,13 +47,6 @@ namespace Guppy
 			}
 		}
 
-		public static Tuple<bool, string> CleanMarlinG29T1UBLMeshResponse(string s)
-		{
-			return StripAndRemoveGeneric(new List<string>(),
-				new List<string>() { "Bed Topography Report for CSV:" },
-				s);
-		}
-
 		public static Tuple<bool, string> StripAndRemoveGeneric(List<string> subStringsToRemove, List<string> linesToRemove, string s)
 		{
 			string ns = s.Trim();

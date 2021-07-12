@@ -29,7 +29,7 @@ namespace GuppyTest
 0.230	0.210	0.150	0.005	-0.010	-0.005	-0.130	-0.050	-0.145	-0.115
 0.290	0.230	0.165	0.090	0.025	0.000	0.005	0.000	0.040	0.030".Split("\r\n"));
 
-			IOutputItem o = MarlinOutputItemFactory.BuildProcessedResponseG29T(cl);
+			IOutputItem o = pr_G29T_MeshMap.BuildProcessedResponseG29T(cl)[0];
 			Assert.IsTrue(o is pr_G29T_MeshMap);
 
 			pr_G29T_MeshMap mm = o as pr_G29T_MeshMap;

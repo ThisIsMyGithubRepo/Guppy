@@ -17,13 +17,13 @@ namespace Guppy.OutputItems
 
 			//M503 Processor
 			p = new SimpleStartEndAbortMatcher(
-				new List<string>() { "M503", "M501" },
-				new List<string>(),
-				new List<string>(),
-				new List<string>() { "ok" },
-				new List<string>(),
-				MarlinStringHelpers.CleanMarlinResponseAndRemoveTextAndLinesNotNeededForCommands,
-				BuildProcessedResponseM503);
+				startAndIncludeStrings: new List<string>(),
+				startAndExcludeStrings: new List<string>() { "echo:  G21    ; Units in mm (mm)" },
+				endAndIncludeStrings: new List<string>(),
+				endAndExcludeStrings: new List<string>() { "ok" },
+				abortStrings: new List<string>(),
+				cleaningFunction: MarlinStringHelpers.CleanMarlinResponseAndRemoveTextAndLinesNotNeededForCommands,
+				builderFunction: pr_M503orM501_Config.BuildProcessedResponseM503);
 
 			p.Name = "M503 or M501 Processor";
 			col.Add(p);
@@ -31,42 +31,37 @@ namespace Guppy.OutputItems
 			//G29T Processor
 
 			p = new SimpleStartEndAbortMatcher(
-				new List<string>(),
-				new List<string>() { "Bed Topography Report for CSV:" },
-				new List<string>(),
-				new List<string>() { "ok" },
-				new List<string>(),
-				MarlinStringHelpers.CleanMarlinResponseAndRemoveTextAndLinesNotNeededForCommands,
-				BuildProcessedResponseG29T);
+				startAndIncludeStrings: new List<string>(),
+				startAndExcludeStrings: new List<string>() { "Bed Topography Report for CSV:" },
+				endAndIncludeStrings: new List<string>(),
+				endAndExcludeStrings: new List<string>() { "ok" },
+				abortStrings: new List<string>(),
+				cleaningFunction: MarlinStringHelpers.CleanMarlinResponseAndRemoveTextAndLinesNotNeededForCommands,
+				builderFunction: pr_G29T_MeshMap.BuildProcessedResponseG29T);
 
-			p.Name = "G29 T1 Processor";
+			//p.Name = "G29 T1 Processor";
 			col.Add(p);
 
 			//M20 Processor - SD Card File List
 
 			p = new SimpleStartEndAbortMatcher(
-				new List<string>(),
-				new List<string>() { "Begin file list" },
-				new List<string>(),
-				new List<string>() { "End file list" },
-				new List<string>(),
-				MarlinStringHelpers.CleanMarlinResponseAndRemoveTextAndLinesNotNeededForCommands,
-				BuildProcessedResponseG20);
+				startAndIncludeStrings: new List<string>(),
+				startAndExcludeStrings: new List<string>() { "Begin file list" },
+				endAndIncludeStrings: new List<string>(),
+				endAndExcludeStrings: new List<string>() { "ok" },
+				abortStrings: new List<string>(),
+				cleaningFunction: pr_M20_PrintableFile.M20_FileListCleanerFunction,
+				builderFunction: pr_M20_PrintableFile.BuildProcessedResponse);
 
-			p.Name = "G20 SD Card File List Processor";
+			//p.Name = "G20 SD Card File List Processor";
 			col.Add(p);
 			return col;
 
 		}
 
-		static int GetId()
+		public static int GetId()
 		{
 			return Interlocked.Increment(ref _id);
-		}
-
-		public static IOutputItem BuildMarlinResponseOutputItem(string s)
-		{
-			return new oi_MarlinResponse(GetId(), s);
 		}
 
 		public static IOutputItem BuildApplicationMessageOutputItem(string s)
@@ -74,54 +69,14 @@ namespace Guppy.OutputItems
 			return new oi_ApplicationMessage(GetId(), s);
 		}
 
+		public static IOutputItem BuildMarlinResponseOutputItem(string s)
+		{
+			return new oi_MarlinResponse(GetId(), s);
+		}
+
 		public static IOutputItem BuildPrinterCommandOutputItem(string s)
 		{
 			return new oi_PrinterCommand(GetId(), s);
 		}
-
-		public static IOutputItem BuildProcessedResponseM503orM501(string s, List<String> commandList)
-		{
-			return new pr_M503orM501_Config(GetId(), s, commandList);
-		}
-
-		public static IOutputItem BuildProcessedResponseM503(List<String> commandList)
-		{
-			return new pr_M503orM501_Config(GetId(), "M503 or M501 Config - Drag and Drop to Macro Button To Capture", commandList);
-		}
-
-		public static IOutputItem BuildProcessedResponseG29T(List<String> commandList)
-		{
-			List<string> stringsToRemove = new List<String>() { "Bed Topography Report for CSV:", string.Empty };
-			List<string> clean = commandList.FindAll(s => !stringsToRemove.Contains(s.Trim()));
-
-			// List is in reverse order (y=max is the first line) so we want to fix that.
-			clean.Reverse();
-
-			int sizeY = clean.Count;
-			int sizeX = clean[0].Split("\t").Length;
-
-			double[,] mesh = new double[sizeX, sizeY];
-
-			double[] row;
-			for (int y = 0; y < sizeY; y++)
-			{
-				// Split the string and convert the values in floats.
-				row = Array.ConvertAll(clean[y].Split("\t"), s => double.Parse(s));
-
-				for (int x = 0; x < sizeX; x++)
-				{
-					// clean array 
-					mesh[x, y] = row[x];
-				}
-			}
-
-			return new pr_G29T_MeshMap(GetId(), "G29 T Mesh Map - Double Click to View", mesh);
-		}
-
-		public static IOutputItem BuildProcessedResponseG20(List<String> commandList)
-		{
-			return null;
-		}
-
 	}
 }

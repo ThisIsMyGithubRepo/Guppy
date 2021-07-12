@@ -38,6 +38,14 @@
             <Setter Property="BorderBrush" Value="MediumBlue" />
             <Setter Property="BorderThickness" Value="2"/>
         </Style>
+        <Style x:Key="PrintableFileTextStyle" TargetType="Paragraph" BasedOn="{StaticResource ProcessedResponseTextStyle}">
+            <!--Make this the same as a formatted response, with some tweaks-->
+            <Setter Property="TextAlignment" Value="Left" />
+            <Setter Property="TextIndent" Value="20"/>
+            <Setter Property="Margin" Value="0,1,0,0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="LineHeight" Value="20"/>
+        </Style>
         <Style x:Key="FallthroughTextStyle" TargetType="Paragraph" BasedOn="{StaticResource OutputItemsDefaultStyle}">
             <Setter Property="Foreground" Value="Yellow" />
         </Style>
@@ -113,6 +121,9 @@
                 </Paragraph>
                 <Paragraph Style="{StaticResource ProcessedResponseTextStyle}">
                     <Run>Formatted Response</Run>
+                </Paragraph>
+                <Paragraph Style="{StaticResource PrintableFileTextStyle}">
+                    <Run>Printable File</Run>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>

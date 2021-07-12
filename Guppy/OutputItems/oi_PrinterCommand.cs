@@ -16,5 +16,6 @@ namespace Guppy.OutputItems
 			Id = id;
 			Value = value;
 		}
+
 	}
 }

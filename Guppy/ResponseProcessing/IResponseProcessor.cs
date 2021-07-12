@@ -7,7 +7,7 @@ namespace Guppy.ResponseProcessing
 {
 	public interface IResponseProcessor
 	{
-		public IOutputItem ProcessAndReturnOutput(IOutputItem outputItem);
+		public List<IOutputItem> ProcessAndReturnOutputItems(IOutputItem outputItem);
 		public string Name { get; set; }
 	}
 }

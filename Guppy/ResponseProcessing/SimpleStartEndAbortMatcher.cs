@@ -16,7 +16,7 @@ namespace Guppy.ResponseProcessing
 		}
 
 		private Func<string, Tuple<bool, string>> _FuncCleaning;
-		private Func<List<String>, IOutputItem> _FunctionBuilder;
+		private Func<List<String>, List<IOutputItem>> _FunctionBuilder;
 
 		private List<string> _StartAndIncludeStrings;
 		private List<string> _StartAndExcludeStrings;
@@ -26,7 +26,7 @@ namespace Guppy.ResponseProcessing
 
 		public SimpleStartEndAbortMatcher(List<string> startAndIncludeStrings,
 			List<string> startAndExcludeStrings, List<string> endAndIncludeStrings,
-			List<string> endAndExcludeStrings, List<string> abortStrings, Func<string, Tuple<bool, string>> cleaningFunction, Func<List<String>, IOutputItem> builderFunction)
+			List<string> endAndExcludeStrings, List<string> abortStrings, Func<string, Tuple<bool, string>> cleaningFunction, Func<List<String>, List<IOutputItem>> builderFunction)
 		{
 			_StartAndIncludeStrings = startAndIncludeStrings;
 			_StartAndExcludeStrings = startAndExcludeStrings;
@@ -48,7 +48,7 @@ namespace Guppy.ResponseProcessing
 
 		public string Name { get; set; } = "Name Not Set";
 
-		public IOutputItem ProcessAndReturnOutput(IOutputItem outputItem)
+		public List<IOutputItem> ProcessAndReturnOutputItems(IOutputItem outputItem)
 		{
 			if (!_isProcessing)
 			{
@@ -62,11 +62,11 @@ namespace Guppy.ResponseProcessing
 					_startId = outputItem.Id;
 					_FullResponse.Clear();
 					_isProcessing = true;
-					return null;
+					return new List<IOutputItem>();
 				}
 
 				// In all cases, we do not have a decoration return
-				return null;
+				return new List<IOutputItem>();
 			}
 			else // _isProcessing == true
 			{
@@ -75,7 +75,7 @@ namespace Guppy.ResponseProcessing
 					// Not the response we were looking for. Cancel out.
 					_startId = -1;
 					_isProcessing = false;
-					return null;
+					return new List<IOutputItem>();
 				}
 
 				TriggerTestResult result = IsEndTrigger(outputItem);
@@ -97,7 +97,7 @@ namespace Guppy.ResponseProcessing
 				{
 					_endId = outputItem.Id; //Keep running count
 					AddLineToFullResponse(outputItem.Value);
-					return null;
+					return new List<IOutputItem>();
 				}
 			}
 		}
