@@ -32,18 +32,20 @@ The app will notice if certain responses are received from the printer, currentl
 ![config-to-marco-screenshot]
 * G29 T1 Mesh Result will be processed, and let you double-click to see a mesh visualization.
 ![mesh-view-screenshot]
+* List Files and Start Prints: M20 command results will be recognized as a list of files, and doubleclicking on a file will start printing it.
+![file-list-screenshot]
 
 <!-- ROADMAP -->
 ## Roadmap
 Literally while typing this, I realize I should make the app process mesh gcode results (I don't think a lot of people know about this feature? You can have marlin output the gcode necessary to re-create your mesh. It's like an export you do prior to a firmware update, since the update will erase your mesh). You can highlight and drag/drop G29 S-1 output and it'll "commandify" it, but a nice processed result would be better.
 
 <!-- Install -->
-## Install
+## ~~Install~~ ALL PREBUILT EXEs ARE OUT OF DATE - NOT RECOMMENDED!
 I have no idea how I should distribute this - maybe send a hint my way?
 I've created an Installers folder, where I've put some install options:
 
 #### Single Exe 
-You can also download [Guppy.zip][exe-link] and inside you'll find a single-file-exe built for Win x64 .Net 3.1, that migh run for you? Runs for me. I have no idea how to make you feel even remotely safe about downloading and running a random exe from the internet.
+You can also download [Guppy.zip][exe-link] and inside you'll find a single-file-exe built for Win x64 .Net 3.1, that might run for you? Runs for me. I have no idea how to make you feel even remotely safe about downloading and running a random exe from the internet.
 
 * Name: GuppySingleExe.zip
 * Size: 61888135 bytes (59 MiB)
@@ -80,4 +82,5 @@ ZIP File of this installer has the following CRC:
 [text-drag-drop-screenshot]: Images/TextDragDropCommandified.jpg
 [config-to-marco-screenshot]: Images/ConfigTurnedIntoMacro.jpg
 [mesh-view-screenshot]: Images/MeshView.jpg
+[file-list-screenshot]: Images/FileListAndPrintStart.jpg
 [exe-link]: /Installers/GuppySingleExe.zip
