@@ -15,8 +15,10 @@ using System.Windows.Shapes;
 using System.IO.Ports;
 using System.Diagnostics;
 using System.Collections.ObjectModel;
+using System.Threading;
 using Guppy.ResponseProcessing;
 using Guppy.OutputItems;
+using System.Reflection;
 
 namespace Guppy
 {
@@ -39,12 +41,12 @@ namespace Guppy
 			InitializeComponent();
 			SanitizeSettings(ref _settings);
 			UpdateConnectedStatus(false);
+
 			_responseProcessors = MarlinOutputItemFactory.BootstrapResponseProcessors();
 
 			//InitializeResponseSelectors();
 
 			flowDocument.IsEnabled = true;
-
 			listOutput.Document = flowDocument;
 
 			try
@@ -60,6 +62,15 @@ namespace Guppy
 			catch (Exception err)
 			{
 				AddItemToOutputCollection(MarlinOutputItemFactory.BuildApplicationMessageOutputItem(err.Message));
+			}
+		}
+
+		public string WindowTitle
+		{
+			get
+			{
+				Version version = Assembly.GetExecutingAssembly().GetName().Version;
+				return "Guppy Communicator for Marlin v" + version;
 			}
 		}
 
@@ -84,7 +95,7 @@ namespace Guppy
 					_oldCommandIndex = 0;
 					break;
 				case Key.Left:
-					if(txtCommandToSend.CaretIndex==0)
+					if (txtCommandToSend.CaretIndex == 0)
 					{
 						MoveCaretToEndOfTextBox();
 						e.Handled = true;
@@ -329,7 +340,7 @@ namespace Guppy
 
 		public void SendCommandToPort(string s)
 		{
-			if(_port==null || !_port.IsOpen) { OpenSerialPort(); }
+			if (_port == null || !_port.IsOpen) { OpenSerialPort(); }
 			_port.WriteLine(s);
 			AddItemToOutputCollection(MarlinOutputItemFactory.BuildPrinterCommandOutputItem(s));
 		}
@@ -461,6 +472,7 @@ namespace Guppy
 				pr_M20_PrintableFile fileOI = ((Paragraph)sender).DataContext as pr_M20_PrintableFile;
 				SendCommandToPort($"M23 {fileOI.Value}");
 				SendCommandToPort("M24");
+				Thread.Sleep(500);
 			}
 		}
 

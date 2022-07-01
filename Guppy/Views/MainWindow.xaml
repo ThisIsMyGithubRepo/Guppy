@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Guppy"
         xmlns:OutputItems="clr-namespace:Guppy.OutputItems"
         mc:Ignorable="d"
-        Title="Guppy Communicator for Marlin" Height="500" Width="900">
+        Title="{Binding WindowTitle, RelativeSource={RelativeSource Mode=Self}}" Height="500" Width="900">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
         <Style x:Key="OutputItemsDefaultStyle" TargetType="Paragraph">
