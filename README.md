@@ -23,7 +23,7 @@ I really don't know what I'm doing, in particular around publishing an app. So, 
 The app has 20 macro buttons, which can you assign any commands you want. Macros can have more than one command (multi-line). It comes with default commands including some UBL mesh management, but you can edit them to make them as you see fit.
 * Single click a macro button to send the commands.
 * Right click a macro button to edit it.
-* You can drag/drop text from the output window onto a macro button. This will open a macro edit window with your dragged text inserted. The app will sanitize the text, stripping out any "echo" statements to make them runnable:
+* You can drag/drop text from the output window onto a macro button. This will open a macro edit window with your dragged text inserted. The app will sanitize the text, stripping out any "echo" statements to make them runnable (useful for capturing your M501/503 config):
 ![Product Name Screen Shot][text-drag-drop-screenshot]
 
 ### Special Command Responses
