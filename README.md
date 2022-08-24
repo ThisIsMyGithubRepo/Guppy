@@ -27,7 +27,7 @@ The app has 20 macro buttons, which can you assign any commands you want. Macros
 ![Product Name Screen Shot][text-drag-drop-screenshot]
 
 ### Special Command Responses
-The app will notice if certain responses are received from the printer, currently just M501/M503 config output and G29 T1 (deliminated mesh) output.
+The app will notice if certain responses are received from the printer, specifically:
 * M501/503 results can be dragged/dropped onto a macro. It will strip off all the non-command stuff leaving you with just the commands you would send to re-set your conifg. This should make it easier to bridge a firmware upgrade.
 ![config-to-marco-screenshot]
 * G29 T1 Mesh Result will be processed, and let you double-click to see a mesh visualization.
