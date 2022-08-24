@@ -1,7 +1,7 @@
 # Guppy
 3D Printer Serial Communication Tool, mostly for Marlin. Why Guppy? Marlin is a fish, and Guppies are much smaller fish. Plus I'm not great at naming apps.
 
-Guppy is a Windows .Net WPF Core 3.1 App.
+Guppy is a Windows .Net WPF Core 3.1 App. Honestly, I kinda hate the implementation...but I don't have a better idea for how to deal with the serial stream, and that fact that there is no easy way to pair a command with it's response (no correlation Id, and you see responses to commands from all sources...). Ah well, it works and was an experiment.
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
