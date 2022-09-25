@@ -1,7 +1,7 @@
 # Guppy
 3D Printer Serial Communication Tool, mostly for Marlin. Why Guppy? Marlin is a fish, and Guppies are much smaller fish. Plus I'm not great at naming apps.
 
-Guppy is a Windows .Net WPF Core 3.1 App.
+Guppy is a Windows .Net WPF Core 3.1 App. Honestly, I kinda hate the implementation...but I don't have a better idea for how to deal with the serial stream, and that fact that there is no easy way to pair a command with it's response (no correlation Id, and you see responses to commands from all sources...). Ah well, it works and was an experiment.
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -23,11 +23,11 @@ I really don't know what I'm doing, in particular around publishing an app. So, 
 The app has 20 macro buttons, which can you assign any commands you want. Macros can have more than one command (multi-line). It comes with default commands including some UBL mesh management, but you can edit them to make them as you see fit.
 * Single click a macro button to send the commands.
 * Right click a macro button to edit it.
-* You can drag/drop text from the output window onto a macro button. This will open a macro edit window with your dragged text inserted. The app will sanitize the text, stripping out any "echo" statements to make them runnable:
+* You can drag/drop text from the output window onto a macro button. This will open a macro edit window with your dragged text inserted. The app will sanitize the text, stripping out any "echo" statements to make them runnable (useful for capturing your M501/503 config):
 ![Product Name Screen Shot][text-drag-drop-screenshot]
 
 ### Special Command Responses
-The app will notice if certain responses are received from the printer, currently just M501/M503 config output and G29 T1 (deliminated mesh) output.
+The app will notice if certain responses are received from the printer, specifically:
 * M501/503 results can be dragged/dropped onto a macro. It will strip off all the non-command stuff leaving you with just the commands you would send to re-set your conifg. This should make it easier to bridge a firmware upgrade.
 ![config-to-marco-screenshot]
 * G29 T1 Mesh Result will be processed, and let you double-click to see a mesh visualization.
