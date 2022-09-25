@@ -3,6 +3,8 @@
 
 Guppy is a Windows .Net WPF Core 3.1 App. Honestly, I kinda hate the implementation...but I don't have a better idea for how to deal with the serial stream, and that fact that there is no easy way to pair a command with it's response (no correlation Id, and you see responses to commands from all sources...). Ah well, it works and was an experiment.
 
+Note: The screenshots all show 20 buttons. It has 30 now.
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
