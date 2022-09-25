@@ -557,6 +557,16 @@ namespace Guppy
 			btnM18.DataContext = new MacroItem(_settings.M18);
 			btnM19.DataContext = new MacroItem(_settings.M19);
 			btnM20.DataContext = new MacroItem(_settings.M20);
+			btnM21.DataContext = new MacroItem(_settings.M21);
+			btnM22.DataContext = new MacroItem(_settings.M22);
+			btnM23.DataContext = new MacroItem(_settings.M23);
+			btnM24.DataContext = new MacroItem(_settings.M24);
+			btnM25.DataContext = new MacroItem(_settings.M25);
+			btnM26.DataContext = new MacroItem(_settings.M26);
+			btnM27.DataContext = new MacroItem(_settings.M27);
+			btnM28.DataContext = new MacroItem(_settings.M28);
+			btnM29.DataContext = new MacroItem(_settings.M29);
+			btnM30.DataContext = new MacroItem(_settings.M30);
 		}
 
 		/// <summary>
@@ -599,6 +609,16 @@ namespace Guppy
 			_settings.M18 = btnM18.DataContext.ToString();
 			_settings.M19 = btnM19.DataContext.ToString();
 			_settings.M20 = btnM20.DataContext.ToString();
+			_settings.M21 = btnM21.DataContext.ToString();
+			_settings.M22 = btnM22.DataContext.ToString();
+			_settings.M23 = btnM23.DataContext.ToString();
+			_settings.M24 = btnM24.DataContext.ToString();
+			_settings.M25 = btnM25.DataContext.ToString();
+			_settings.M26 = btnM26.DataContext.ToString();
+			_settings.M27 = btnM27.DataContext.ToString();
+			_settings.M28 = btnM28.DataContext.ToString();
+			_settings.M29 = btnM29.DataContext.ToString();
+			_settings.M30 = btnM30.DataContext.ToString();
 			_settings.Save();
 		}
 		#endregion

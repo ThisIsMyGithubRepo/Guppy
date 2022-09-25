@@ -39,13 +39,13 @@
       <Value Profile="(Default)">Disable Steppers,M18</Value>
     </Setting>
     <Setting Name="M8" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Preheat Nozzle 180C,M104 S180</Value>
     </Setting>
     <Setting Name="M9" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">File List,M20</Value>
     </Setting>
     <Setting Name="M10" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Cool Bed,M140 S0</Value>
     </Setting>
     <Setting Name="M11" Type="System.String" Scope="User">
       <Value Profile="(Default)">UBL Auto Probe,G29 P1,G29 F 10.0</Value>
@@ -60,22 +60,52 @@
       <Value Profile="(Default)">Output Mesh Gcode,G29 S -1</Value>
     </Setting>
     <Setting Name="M15" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Extrude 10mm,G92 E0,G1 E10 F100</Value>
     </Setting>
     <Setting Name="M16" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Config for Post Upgrade</Value>
     </Setting>
     <Setting Name="M17" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Mesh for Post Upgrade</Value>
     </Setting>
     <Setting Name="M18" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Load Settings,M501</Value>
     </Setting>
     <Setting Name="M19" Type="System.String" Scope="User">
       <Value Profile="(Default)">Print Config,M503</Value>
     </Setting>
     <Setting Name="M20" Type="System.String" Scope="User">
       <Value Profile="(Default)">Save Config,M501</Value>
+    </Setting>
+    <Setting Name="M21" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Abort SD Print,M524</Value>
+    </Setting>
+    <Setting Name="M22" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="M23" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="M24" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="M25" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="M26" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="M27" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="M28" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="M29" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="M30" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
